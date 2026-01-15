@@ -1,8 +1,10 @@
 from typing import Union
 from fastapi import FastAPI
+from model import compute_surface_score
 
 app = FastAPI()
 
 @app.get("/surface")
 def surface():
-    return {"surface": 1}
+    score = compute_surface_score()
+    return {"surface": score}
